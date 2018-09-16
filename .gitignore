@@ -1,0 +1,16 @@
+# ignore all
+/*
+/.*
+
+# dir
+!/*/
+
+#file
+!.gitignore
+!.gitlab-ci.yml
+!READOME.md
+!/*/PKGBUILD
+!/*/PKGBUILD.sha512sum
+!/*/.SRCINFO
+!/*/.install
+

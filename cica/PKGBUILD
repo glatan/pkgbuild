@@ -1,9 +1,9 @@
 # Maintainer: glatan <glatan.edu@gmail.com>
 # Contributor: yuhr <sdn.pate(at)gmail.com>
 
-pkgname=cica
-pkgver=4.1.1
-pkgrel=1
+pkgname='cica'
+pkgver='4.1.1'
+pkgrel='3'
 pkgdesc='Composite font with Ubuntu Mono and Rounded Mgen+.'
 url='https://github.com/miiton/Cica'
 license=('custom')
@@ -15,20 +15,22 @@ depends=(
 makedepends=(
   'fontforge'
 )
-install=$pkgname.install
-source=("https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.zip"
-        'dejavu-fonts-ttf.zip::http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.zip'
-        'hack.zip::https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip'
-        'rounded-mgenplus.7z::https://osdn.jp/downloads/users/8/8598/rounded-mgenplus-20150602.7z'
-        'ubuntu-font-family.zip::https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip'
-        'https://github.com/googlei18n/noto-emoji/raw/master/fonts/NotoEmoji-Regular.ttf'
+install=${pkgname}.install
+source=(
+  "https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
+  'dejavu-fonts-ttf.zip::http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.zip'
+  'hack.tar.gz::https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.gz'
+  'rounded-mgenplus.7z::https://osdn.jp/downloads/users/8/8598/rounded-mgenplus-20150602.7z'
+  'ubuntu-font-family.zip::https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip'
+  'https://github.com/googlei18n/noto-emoji/raw/master/fonts/NotoEmoji-Regular.ttf'
 )
-sha512sums=('6e8b6723b094177604247f267c33d82ec8db48fc4b898ca3162d1fa0190d43f540f601b043080bcb30ed70f9cf7504e892aadf57c851a2793b59f00257b3f03b'
-            'f5628efe484b6220d0bf8177aa826c28e7a36f0bcca2019e057c20f5915d579057f931377ec686dbfeebef05fcf6453472be77a21ef282bd9d8d0eaf62549a49'
-            '7f6a2353711c9da17ff6ce648a28ff038462fbb6f3be91eb5b7f797a7182bb21224942ea5964cc8add3912e18c7e6267d311c7674f45f4295edfe1a1f69f46d3'
-            '75ac248098b82a32947115018cafe2aa622f135928e783980ebecbbac87e3e9ca37f500c00ce8ec3c0c92ff51fb6c17dbf003d532bbd22de6ef495bb2848b56e'
-            'd9ab7afc8aab55810de6e403aa02c0118bb35d94844cc14bb07b71daef4c6d63a9c927f0e81a9f97d29904512d94fa0226fbff2341351ac000fc233d2dc55727'
-            '51b01ab0794be9f92c59679f6d56d4ce09ed959daeb9ec945bb837eb15a82ab302e83b29aab1972ac9cb648f7196a5f5ff4488a4622b36bedbc9cd0cab6dc3de'
+sha512sums=(
+  '2a2e8501d9f6ddb0571b6931bf623744f6c272fe2f7be067ad0e973a2bc789b1ccf4b9c057669012370d5b04eaccd192dee99b9abb40a3981eb2f3bc431cbd6a'
+  'f5628efe484b6220d0bf8177aa826c28e7a36f0bcca2019e057c20f5915d579057f931377ec686dbfeebef05fcf6453472be77a21ef282bd9d8d0eaf62549a49'
+  '2eef99e8959e7451ed70a49a3c361aa2cb431cdd324a5592f72bfbe351651e9dc2d2330d02486ddfb6c8f8669a2c48666ba4a78e14ed2436c7dbe91a7f944b2f'
+  '75ac248098b82a32947115018cafe2aa622f135928e783980ebecbbac87e3e9ca37f500c00ce8ec3c0c92ff51fb6c17dbf003d532bbd22de6ef495bb2848b56e'
+  'd9ab7afc8aab55810de6e403aa02c0118bb35d94844cc14bb07b71daef4c6d63a9c927f0e81a9f97d29904512d94fa0226fbff2341351ac000fc233d2dc55727'
+  '51b01ab0794be9f92c59679f6d56d4ce09ed959daeb9ec945bb837eb15a82ab302e83b29aab1972ac9cb648f7196a5f5ff4488a4622b36bedbc9cd0cab6dc3de'
 )
 
 prepare() {

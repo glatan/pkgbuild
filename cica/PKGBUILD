@@ -6,8 +6,8 @@ pkgver='4.1.1'
 pkgrel='3'
 pkgdesc='Composite font with Ubuntu Mono and Rounded Mgen+.'
 url='https://github.com/miiton/Cica'
-license=('custom')
 arch=('any')
+license=('custom')
 depends=(
   'fontconfig'
   'xorg-font-utils'

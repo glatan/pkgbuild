@@ -1,12 +1,12 @@
 # Maintainer: glatan <glatan.edu@gmail.com>
 # Contributor: Jguer <joaogg3@gmail.com>
 
-pkgname=yay
+pkgname='yay'
 pkgver='8.1115'
-pkgrel=2
+pkgrel='3'
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
-arch=('x86_64')
 url='https://github.com/Jguer/yay'
+arch=('x86_64')
 license=('GPL')
 depends=(
   'pacman>=5.1'

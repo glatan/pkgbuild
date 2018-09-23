@@ -16,8 +16,12 @@ depends=(
 makedepends=(
   'go'
 )
-source=("https://gitlab.com/glarch/applications/yay/-/archive/v${pkgver}/yay-v${pkgver}.zip")
-sha512sums=('f227a2ed664b13fce7af91f4b034e82821e452e0e12834ef4b0eabea53427efacee6348cfa2ca1831abb573f4d293c96ea6045482f695085e4ff22f7d1838b20')
+source=(
+  "https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
+)
+sha512sums=(
+  'c48e714a867d250b067dc1875a8443834358f48b6de31c2d2277d3176cdb64aad35e6d2a2cfb52af0d6318a513b596957df49ab9e09fb044638d1ebe98125f87'
+)
 
 build() {
   cd "${srcdir}/${pkgname}-v${pkgver}"

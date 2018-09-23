@@ -2,10 +2,10 @@
 # Contributor: Jguer <joaogg3@gmail.com>
 
 pkgname=yay
-pkgver="$(date '+%Y%m%d')+git"
+pkgver='8.1115'
 pkgrel=2
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
-arch=('i686' 'x86_64' 'armv7h' 'armv6h' 'aarch64')
+arch=('x86_64')
 url='https://github.com/Jguer/yay'
 license=('GPL')
 depends=(
@@ -16,15 +16,15 @@ depends=(
 makedepends=(
   'go'
 )
-source=('git+https://gitlab.com/glarepo/packages/yay.git')
-sha512sums=('SKIP')
+source=("https://gitlab.com/glarch/applications/yay/-/archive/v${pkgver}/yay-v${pkgver}.zip")
+sha512sums=('f227a2ed664b13fce7af91f4b034e82821e452e0e12834ef4b0eabea53427efacee6348cfa2ca1831abb573f4d293c96ea6045482f695085e4ff22f7d1838b20')
 
 build() {
-  cd "$srcdir/$pkgname"
-  make VERSION=$pkgver
+  cd "${srcdir}/${pkgname}-v${pkgver}"
+  make VERSION=${pkgver}
 }
 
 package() {
-  cd "$srcdir/$pkgname"
-  make VERSION=$pkgver DESTDIR="$pkgdir" install
+  cd "${srcdir}/${pkgname}-v${pkgver}"
+  make VERSION=${pkgver} DESTDIR="${pkgdir}" install
 }

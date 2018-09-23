@@ -5,6 +5,7 @@
 !/*/
 
 #file
+!crean.fish
 !.gitignore
 !.gitlab-ci.yml
 !READOME.md
@@ -12,4 +13,3 @@
 !/*/PKGBUILD.sha512sum
 !/*/.SRCINFO
 !/*/.install
-

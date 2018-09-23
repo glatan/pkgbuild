@@ -1,7 +1,5 @@
-# dir
-rm -rf ./*/pkg/*
-rm -rf ./*/src/*
-# file
+rm ./*/pkg/*
+rm ./*/src/*
 rm ./*/*.tar.bz2
 rm ./*/*.tar.gz
 rm ./*/*.ttf

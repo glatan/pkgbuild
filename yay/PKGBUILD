@@ -2,7 +2,7 @@
 # Contributor: Jguer <joaogg3@gmail.com>
 
 pkgname='yay'
-pkgver='8.1115'
+pkgver='8.1173.0'
 pkgrel='3'
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
@@ -20,7 +20,7 @@ source=(
   "https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
 )
 sha512sums=(
-  'c48e714a867d250b067dc1875a8443834358f48b6de31c2d2277d3176cdb64aad35e6d2a2cfb52af0d6318a513b596957df49ab9e09fb044638d1ebe98125f87'
+  '71478a4cd844a24b9d5ea0bc0158a91ecbc24f6ffac2295a0aee339d5c1eb0320c8e940f84153038be02c4e0e579eb7c7a5534c6a1bd48e4250bb12b25479534'
 )
 
 build() {

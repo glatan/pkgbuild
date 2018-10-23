@@ -3,7 +3,7 @@
 
 pkgname='cica'
 pkgver='4.1.1'
-pkgrel='3'
+pkgrel='4'
 pkgdesc='Composite font with Ubuntu Mono and Rounded Mgen+.'
 url='https://github.com/miiton/Cica'
 arch=('any')
@@ -23,6 +23,7 @@ source=(
   'rounded-mgenplus.7z::https://osdn.jp/downloads/users/8/8598/rounded-mgenplus-20150602.7z'
   'ubuntu-font-family.zip::https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip'
   'https://github.com/googlei18n/noto-emoji/raw/master/fonts/NotoEmoji-Regular.ttf'
+  'https://github.com/mirmat/iconsfordevs/raw/master/fonts/iconsfordevs.ttf'
 )
 sha512sums=(
   '2a2e8501d9f6ddb0571b6931bf623744f6c272fe2f7be067ad0e973a2bc789b1ccf4b9c057669012370d5b04eaccd192dee99b9abb40a3981eb2f3bc431cbd6a'
@@ -31,6 +32,7 @@ sha512sums=(
   '75ac248098b82a32947115018cafe2aa622f135928e783980ebecbbac87e3e9ca37f500c00ce8ec3c0c92ff51fb6c17dbf003d532bbd22de6ef495bb2848b56e'
   'd9ab7afc8aab55810de6e403aa02c0118bb35d94844cc14bb07b71daef4c6d63a9c927f0e81a9f97d29904512d94fa0226fbff2341351ac000fc233d2dc55727'
   '51b01ab0794be9f92c59679f6d56d4ce09ed959daeb9ec945bb837eb15a82ab302e83b29aab1972ac9cb648f7196a5f5ff4488a4622b36bedbc9cd0cab6dc3de'
+  '73ceb3dd2371174371eb8ed3275bb784ee82af8b53e57618368dc779d4490f37ec91e9943be22a5cf84cd9dbf5f79ceaec5922cb42b2306a6fcb48f084813ccc'
 )
 
 prepare() {
@@ -45,6 +47,7 @@ prepare() {
   cp ubuntu-font-family-0.83/UbuntuMono-R.ttf ${sourceFonts}
   cp ubuntu-font-family-0.83/UbuntuMono-B.ttf ${sourceFonts}
   cp ../NotoEmoji-Regular.ttf ${sourceFonts}
+  cp ../iconsfordevs.ttf ${sourceFonts}
 }
 
 build() {

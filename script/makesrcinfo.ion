@@ -1,0 +1,12 @@
+#!/bin/ion
+
+cd ../package
+let packages = [ * ]
+
+for package in @packages
+  cd $package
+  makepkg --printsrcinfo > .SRCINFO
+  cd ../
+end
+
+cd ../

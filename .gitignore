@@ -2,14 +2,19 @@
 *
 
 # dir
-!/*/
+!package/
+!package/*/
+!script/
 
-#file
-!crean.fish
+# root files
+!READOME.md
 !.gitignore
 !.gitlab-ci.yml
-!READOME.md
-!/*/PKGBUILD
-!/*/PKGBUILD.sha512sum
-!/*/.SRCINFO
-!/*/.install
+
+# package files
+!package/*/PKGBUILD
+!package/*/.SRCINFO
+!package/*/*.install
+
+# manage scripts
+!script/*.ion

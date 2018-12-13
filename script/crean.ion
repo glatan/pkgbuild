@@ -1,0 +1,18 @@
+#!/bin/ion
+
+cd ../package
+let packages = [ * ]
+
+for package in @packages
+  cd $package
+  rm -rf pkg/
+  rm -rf src/
+  rm *.7z
+  rm *.pkg.*
+  rm *.tar.*
+  rm *.ttf
+  rm *.zip
+  cd ../
+end
+
+cd ../

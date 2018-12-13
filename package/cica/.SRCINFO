@@ -1,26 +1,28 @@
 pkgbase = cica
 	pkgdesc = Composite font with Ubuntu Mono and Rounded Mgen+.
-	pkgver = 4.0.0
-	pkgrel = 1
+	pkgver = 4.1.1
+	pkgrel = 4
 	url = https://github.com/miiton/Cica
 	install = cica.install
 	arch = any
 	license = custom
+	makedepends = fontforge
 	depends = fontconfig
-	depends = fontforge
 	depends = xorg-font-utils
-	source = cica.zip::https://gitlab.com/glarch/applications/cica/-/archive/v4.0.0/Cica-v4.0.0.zip
+	source = https://gitlab.com/glarch/applications/cica/-/archive/v4.1.1/cica-v4.1.1.tar.bz2
 	source = dejavu-fonts-ttf.zip::http://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.zip
-	source = hack.zip::https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+	source = hack.tar.gz::https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.gz
 	source = rounded-mgenplus.7z::https://osdn.jp/downloads/users/8/8598/rounded-mgenplus-20150602.7z
 	source = ubuntu-font-family.zip::https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip
 	source = https://github.com/googlei18n/noto-emoji/raw/master/fonts/NotoEmoji-Regular.ttf
-	sha512sums = 3541939599c0e22df01915c931b89a9f52f7f1739f01a0b78e0513991548b36c9332d3bcdc18a225085f4b99c8e54244ede4d0a2a31b04ba9b91f1c75c4c399f
+	source = https://github.com/mirmat/iconsfordevs/raw/master/fonts/iconsfordevs.ttf
+	sha512sums = 2a2e8501d9f6ddb0571b6931bf623744f6c272fe2f7be067ad0e973a2bc789b1ccf4b9c057669012370d5b04eaccd192dee99b9abb40a3981eb2f3bc431cbd6a
 	sha512sums = f5628efe484b6220d0bf8177aa826c28e7a36f0bcca2019e057c20f5915d579057f931377ec686dbfeebef05fcf6453472be77a21ef282bd9d8d0eaf62549a49
-	sha512sums = 7f6a2353711c9da17ff6ce648a28ff038462fbb6f3be91eb5b7f797a7182bb21224942ea5964cc8add3912e18c7e6267d311c7674f45f4295edfe1a1f69f46d3
+	sha512sums = 2eef99e8959e7451ed70a49a3c361aa2cb431cdd324a5592f72bfbe351651e9dc2d2330d02486ddfb6c8f8669a2c48666ba4a78e14ed2436c7dbe91a7f944b2f
 	sha512sums = 75ac248098b82a32947115018cafe2aa622f135928e783980ebecbbac87e3e9ca37f500c00ce8ec3c0c92ff51fb6c17dbf003d532bbd22de6ef495bb2848b56e
 	sha512sums = d9ab7afc8aab55810de6e403aa02c0118bb35d94844cc14bb07b71daef4c6d63a9c927f0e81a9f97d29904512d94fa0226fbff2341351ac000fc233d2dc55727
 	sha512sums = 51b01ab0794be9f92c59679f6d56d4ce09ed959daeb9ec945bb837eb15a82ab302e83b29aab1972ac9cb648f7196a5f5ff4488a4622b36bedbc9cd0cab6dc3de
+	sha512sums = 73ceb3dd2371174371eb8ed3275bb784ee82af8b53e57618368dc779d4490f37ec91e9943be22a5cf84cd9dbf5f79ceaec5922cb42b2306a6fcb48f084813ccc
 
 pkgname = cica
 

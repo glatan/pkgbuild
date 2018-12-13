@@ -1,0 +1,12 @@
+#!/bin/ion
+
+cd ../package
+let packages = [ * ]
+
+for package in @packages
+  cd $package
+  su builder -c 'makepkg -s --noconfirm'
+  cd ../
+end
+
+cd ../

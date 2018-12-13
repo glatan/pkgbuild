@@ -1,0 +1,19 @@
+image: registry.gitlab.com/glarch/container/package-build-container:latest
+
+stages:
+  - test
+#   - deploy
+
+before_script:
+  - pacman -Syy
+
+test_x86_64:
+  stage: test
+  script:
+    - cd script
+    - ion makepkg.ion
+
+# deploy_packages:
+#   stage: deploy
+#   script:
+#     - 

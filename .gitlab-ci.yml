@@ -6,6 +6,7 @@ stages:
 
 before_script:
   - pacman -Syy
+  - pacman -S base-devel
 
 test_x86_64:
   stage: test

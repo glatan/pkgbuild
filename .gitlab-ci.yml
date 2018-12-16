@@ -1,4 +1,4 @@
-image: registry.gitlab.com/glarch/container/package-build-container:latest
+image: registry.gitlab.com/glarch/container:makepkg
 
 stages:
   - test

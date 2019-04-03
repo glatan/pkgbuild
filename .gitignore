@@ -6,15 +6,13 @@
 !package/*/
 !script/
 
-# root files
-!READOME.md
+# dotfile
 !.gitignore
-!.gitlab-ci.yml
 
 # package files
 !package/*/PKGBUILD
 !package/*/.SRCINFO
 !package/*/*.install
 
-# manage scripts
-!script/*.ion
+# crean script
+!script/crean.sh

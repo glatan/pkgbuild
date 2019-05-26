@@ -2,14 +2,14 @@
 # Contributor: Jguer <joaogg3@gmail.com>
 
 pkgname='yay'
-pkgver='9.0.1'
-pkgrel='3'
+pkgver='9.2.0'
+pkgrel='1'
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
 arch=('x86_64')
 license=('GPL')
 depends=(
-  'pacman>=5.1'
+  'pacman'
   'sudo'
   'git'
 )
@@ -20,15 +20,15 @@ source=(
   "https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
 )
 sha512sums=(
-  'a563b774019c5ca6d72ebc19881651d83526e136e7a56d8ff18117b2290a2c8858a578406c7db3d189fc15da2aa53d38856cecacf5c16f5acc419781a20361ae'
+  '5f8b18ac0057dfcaea10e820cc4dcb0670882f8fd10a662c6254bd3ffe5b1160bfae5aeb6efc95815f53ff40193167fe5dd866cd7d74cdfce250503a780978ff'
 )
 
 build() {
   cd "${srcdir}/${pkgname}-v${pkgver}"
-  make VERSION=${pkgver}
+  make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
 }
 
 package() {
   cd "${srcdir}/${pkgname}-v${pkgver}"
-  make VERSION=${pkgver} DESTDIR="${pkgdir}" install
+  make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr' install
 }

@@ -1,0 +1,27 @@
+pkgbase = spotify
+	pkgdesc = A music streaming client
+	pkgver = 1.1.5.153.gf614956d
+	pkgrel = 1
+	url = https://www.spotify.com
+	arch = x86_64
+	license = custom
+	depends = alsa-lib
+	depends = at-spi2-atk
+	depends = gcc-libs
+	depends = libcurl-gnutls
+	depends = gconf
+	depends = glib2
+	depends = gtk2
+	depends = nss
+	depends = openssl
+	depends = libxss
+	depends = libxtst
+	depends = xdg-utils
+	optdepends = ffmpeg
+	optdepends = libnotify
+	source = https://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.1.5.153.gf614956d-16_amd64.deb
+	validpgpkeys = 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+	sha512sums = db354f161c35b5f1a2d633282fad8fccf565e0061e7d258012f28422d766630391d47d4dafe22448fb60f850bf4ccbfdf82443cf107e03727c077b2c62e524be
+
+pkgname = spotify
+

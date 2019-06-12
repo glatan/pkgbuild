@@ -12,8 +12,7 @@ FILES=(
 )
 FILE_EXTENSIONS=(
   'deb'
-  'pkg.*'
-  'tar.*'
+  '*.tar.*'
   'ttf'
   'zip'
   '7z'

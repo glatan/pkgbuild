@@ -7,21 +7,21 @@
 !package/AUR/*/
 !script/
 
-# dotfile
+# rootfile
 !.gitignore
+!Makefile
 
 # package files
 !package/*/LICENSE
 !package/*/PKGBUILD
-!package/*/.SRCINFO
 !package/*/*.install
 !package/*/*.protocol
 
 !package/AUR/*/LICENSE
 !package/AUR/*/PKGBUILD
-!package/AUR/*/.SRCINFO
 !package/AUR/*/*.install
 !package/AUR/*/*.protocol
 
-# crean script
-!script/crean.sh
+# some script
+!script/clean.sh
+!script/build.sh

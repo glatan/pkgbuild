@@ -1,9 +1,9 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 # Contributor: yuhr <sdn.pate(at)gmail.com>
 
-pkgname='cica'
-pkgver='4.1.1'
-pkgrel='4'
+pkgname=cica
+pkgver=4.1.1
+pkgrel=5
 pkgdesc='Composite font with Ubuntu Mono and Rounded Mgen+.'
 url='https://github.com/miiton/Cica'
 arch=('any')
@@ -39,32 +39,30 @@ prepare() {
   # ビルドに必要なフォント移動先のディレクトリ
   export sourceFonts="${srcdir}/${pkgname}-v${pkgver}/sourceFonts/"
   # souceFontsに必要なフォントを移動
-  cp dejavu-fonts-ttf-2.37/ttf/DejaVuSansMono.ttf ${sourceFonts}
-  cp dejavu-fonts-ttf-2.37/ttf/DejaVuSansMono-Bold.ttf ${sourceFonts}
-  cp ttf/* ${sourceFonts}
-  cp rounded-mgenplus-1m-regular.ttf ${sourceFonts}
-  cp rounded-mgenplus-1m-bold.ttf ${sourceFonts}
-  cp ubuntu-font-family-0.83/UbuntuMono-R.ttf ${sourceFonts}
-  cp ubuntu-font-family-0.83/UbuntuMono-B.ttf ${sourceFonts}
-  cp ../NotoEmoji-Regular.ttf ${sourceFonts}
-  cp ../iconsfordevs.ttf ${sourceFonts}
+  cp dejavu-fonts-ttf-2.37/ttf/DejaVuSansMono.ttf "${sourceFonts}"
+  cp dejavu-fonts-ttf-2.37/ttf/DejaVuSansMono-Bold.ttf "${sourceFonts}"
+  cp ttf/* "${sourceFonts}"
+  cp rounded-mgenplus-1m-regular.ttf "${sourceFonts}"
+  cp rounded-mgenplus-1m-bold.ttf "${sourceFonts}"
+  cp ubuntu-font-family-0.83/UbuntuMono-R.ttf "${sourceFonts}"
+  cp ubuntu-font-family-0.83/UbuntuMono-B.ttf "${sourceFonts}"
+  cp ../NotoEmoji-Regular.ttf "${sourceFonts}"
+  cp ../iconsfordevs.ttf "${sourceFonts}"
 }
 
 build() {
-  cd "${pkgname}-v${pkgver}"
+  cd "${pkgname}-v${pkgver}" || exit
   fontforge -lang=py -script cica.py
-  # ビルドしたフォントとライセンスの仮置き場
   mkdir -p ../tmp/
   cp ./dist/*.ttf ../tmp/
   cp ./LICENSE.txt ../tmp/
 }
 
 package() {
-  # ビルド結果の仮置き場に移動
-  cd ./tmp/
+  cd ./tmp/ || exit
 
-  install -dm755 "${pkgdir}"/usr/share/fonts/TTF
-  install -m644 *.ttf "${pkgdir}"/usr/share/fonts/TTF/
+  install -dm755 "${pkgdir}/usr/share/fonts/TTF"
+  install -m644 *.ttf "${pkgdir}/usr/share/fonts/TTF/"
 
   install -d "${pkgdir}/usr/share/licenses/${pkgname}/"
   install -Dm644 *.txt "${pkgdir}/usr/share/licenses/${pkgname}/"

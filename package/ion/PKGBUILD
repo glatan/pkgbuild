@@ -1,9 +1,9 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 # Contributor: Luca Weiss <luca (at) z3ntu (dot) xyz>
 
-pkgname='ion'
-pkgver='1.0.5'
-pkgrel='3'
+pkgname=ion
+pkgver=1.0.5
+pkgrel=4
 pkgdesc='The Ion Shell. Compatible with Redox and Linux.'
 arch=('x86_64')
 url='https://gitlab.redox-os.org/redox-os/ion'
@@ -14,16 +14,16 @@ source=("https://gitlab.com/glarch/applications/${pkgname}/-/archive/${pkgver}/$
 sha512sums=('c7a8338ccc45684e04ed207aa977d1c0d05a9229bb0f146ae3965a1ce85b7aa0afbf116e99e44de31cfd825ff2d2b67df69eb1403befe334524f601f546d1554')
 
 build() {
-  cd $srcdir/$pkgname-$pkgver
+  cd ${srcdir}/${pkgname}-${pkgver}
   cargo build --release
 }
 
 check() {
-  cd $srcdir/$pkgname-$pkgver
+  cd ${srcdir}/${pkgname}-${pkgver}
   cargo test
 }
 
 package() {
-  cd $srcdir/$pkgname-$pkgver
-  install -Dm755 target/release/ion $pkgdir/usr/bin/ion
+  cd ${srcdir}/${pkgname}-${pkgver}
+  install -Dm755 "target/release/ion" "${pkgdir}/usr/bin/ion"
 }

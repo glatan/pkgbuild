@@ -1,12 +1,12 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 # Contributor: Noi Sek <noi.t.sek | gmail>
 
-pkgname='lightdm-webkit-theme-aether'
-pkgver='2.2.2'
-pkgrel='2'
-pkgdesc="A sleek, customizable Archlinux theme for lightdm."
+pkgname=lightdm-webkit-theme-aether
+pkgver=2.2.2
+pkgrel=3
+pkgdesc='A sleek, customizable Archlinux theme for lightdm.'
 arch=('any')
-url="https://github.com/NoiSek/Aether"
+url='https://github.com/NoiSek/Aether'
 license=('GPL2')
 depends=(
   'lightdm'
@@ -18,13 +18,13 @@ source=("https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/
 sha512sums=('3aa37ba85cf6a6a57db5ccfafc322f22681782461505fb50abc4e30086e9783c444e5c5dde1ad1e3927878bf280ec991599fdeb65354ee5446a674af0f71eeda')
 
 package() {
-  cd "${srcdir}/${pkgname}-v${pkgver}/"
+  cd "${srcdir}/${pkgname}-v${pkgver}/" || exit
   target="${pkgdir}/usr/share/lightdm-webkit/themes/${pkgname}/"
 
-  install -dm755 ${target}
-  install -Dm644 index.html ${target}
-  install -Dm644 index.theme ${target}
+  install -dm755 "${target}"
+  install -Dm644 index.html "${target}"
+  install -Dm644 index.theme "${target}"
 
-  cp -R src/ ${target}
-  cp -R dist/ ${target}
+  cp -R src/ "${target}"
+  cp -R dist/ "${target}"
 }

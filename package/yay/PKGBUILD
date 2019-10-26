@@ -1,9 +1,9 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 # Contributor: Jguer <joaogg3@gmail.com>
 
-pkgname='yay'
-pkgver='9.2.0'
-pkgrel='1'
+pkgname=yay
+pkgver=9.2.0
+pkgrel=1
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
 arch=('x86_64')
@@ -24,11 +24,11 @@ sha512sums=(
 )
 
 build() {
-  cd "${srcdir}/${pkgname}-v${pkgver}"
+  cd "${srcdir}/${pkgname}-v${pkgver}" || exit
   make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
 }
 
 package() {
-  cd "${srcdir}/${pkgname}-v${pkgver}"
+  cd "${srcdir}/${pkgname}-v${pkgver}" || exit
   make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr' install
 }

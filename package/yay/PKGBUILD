@@ -3,34 +3,28 @@
 
 pkgname='yay'
 pkgver='9.4.2'
-pkgrel='1'
+pkgrel='2'
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
 arch=('x86_64')
-license=('GPL')
+license=('GPL3')
 depends=(
   'pacman>=5.2'
   'sudo'
   'git'
 )
-makedepends=(
-  'go'
-)
-source=(
-  "https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
-)
-sha512sums=(
-  '315d7b2ca6ec345793dcc5428f2ac028943226dbe07417b4ae0a5fe32876d32bce92dcc83a2eaf55fd0d7b778d5910a058d81b46baef1f8c832291bf86a3c2b0'
-)
+makedepends=('go')
+source=("https://github.com/Jguer/${pkgname}/archive/v${pkgver}.tar.gz")
+sha512sums=('8e5164f94fed2b2c480dcfef73c29fd93ff039b2b1da52a460b592c39a64b78c02ce0a6dff4b5ccc023b820c41897abaded62c62637006feb51886535900855e')
 
 build() {
-  cd "${srcdir}/${pkgname}-v${pkgver}" || exit
+  cd "${srcdir}/${pkgname}-${pkgver}" || exit
   EXTRA_GOFLAGS="-gcflags all=-trimpath=${PWD} -asmflags all=-trimpath=${PWD}"
   LDFLAGS="-linkmode external -extldflags \"${LDFLAGS}\""
   make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
 }
 
 package() {
-  cd "${srcdir}/${pkgname}-v${pkgver}" || exit
+  cd "${srcdir}/${pkgname}-${pkgver}" || exit
   make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr' install
 }

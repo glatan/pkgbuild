@@ -1,0 +1,22 @@
+# Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
+# Contributor: Maxime Gauduin <alucryd@archlinux.org>
+# Contributor : Erik Dubois <erik.dubois@gmail.com>
+# Contributor: Alex Gajewski <agajews@gmail.com>
+
+pkgname='numix-icon-theme-circle'
+pkgver='19.09.20'
+pkgrel='1'
+pkgdesc='Circle icon theme from the Numix project'
+arch=('any')
+url='http://numixproject.org/'
+license=('GPL3')
+replaces=('numix-circle-icon-theme')
+provides=('numix-icon-theme-circle' 'numix-icon-theme-circle-light')
+options=('!strip')
+source=("https://github.com/numixproject/${pkgname}/archive/${pkgver}.tar.gz")
+sha512sums=('bc0e80953e646c305d8af9f2360389850f7f67b5bfc35501c137f07dbb99db146e4de6e2afaa711b8eafe83315ab5f392ce1276bd54a431516c21171da20a9ff')
+
+package() {
+  install -dm755 "${pkgdir}/usr/share/icons"
+  cp -dr --no-preserve='ownership' "${srcdir}/${pkgname}-${pkgver}"/Numix-Circle{,-Light} "${pkgdir}/usr/share/icons/"
+}

@@ -1,0 +1,22 @@
+# Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
+# Contributor: yuhr <sdn.pate(at)gmail.com>
+
+pkgname='ttf-cica'
+pkgver='5.0.1'
+pkgrel='1'
+pkgdesc='Composite font with Ubuntu Mono and Rounded Mgen+.'
+url='https://github.com/miiton/Cica'
+arch=('any')
+license=('custom')
+depends=('fontconfig')
+replaces=('cica')
+install="${pkgname}.install"
+source=("https://github.com/miiton/Cica/releases/download/v${pkgver}/Cica_v${pkgver}_with_emoji.zip")
+sha512sums=('9754e050add46fcf4a3ad906cde391f7d2019615024ce0d3bbb1178b724094707d3f116b73191b96779bd2739780e38c5854b3a04a6e90d95ac4d751fc2f5e8e')
+
+package() {
+  install -dm755 "${pkgdir}/usr/share/fonts/TTF"
+  install -m644 "${srcdir}/"*.ttf "${pkgdir}/usr/share/fonts/TTF/"
+  install -dm755 "${pkgdir}/usr/share/licenses/${pkgname}/"
+  install -Dm644 "${srcdir}/"*.txt "${pkgdir}/usr/share/licenses/${pkgname}/"
+}

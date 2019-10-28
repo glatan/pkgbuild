@@ -18,7 +18,7 @@ docker-run:
 	)
 	@docker run -itd --name ${NAME} \
 		--mount type=bind,src=${REPOSITORY_PATH},dst=/makepkg \
-		${CONTAINER_NAME}
+		--workdir /makepkg ${CONTAINER_NAME}
 
 .PHONY: docker-exec
 docker-exec:
@@ -27,7 +27,7 @@ docker-exec:
 .PHONY: build
 build:
 	$(if ${ARG},, \
-		$(err Build target is not selected) \
+		$(error Build target is not selected) \
 	)
 	$(info Build target: ${ARG})
 	@docker exec ${NAME} /makepkg/script/build.sh ${ARG}
@@ -35,3 +35,7 @@ build:
 .PHONY: clean
 clean:
 	@docker exec ${NAME} /makepkg/script/clean.sh ${ARG}
+
+.PHONY: updpkgsums
+updpkgsums:
+	@docker exec ${NAME} /makepkg/script/build.sh --updpkgsums ${ARG}

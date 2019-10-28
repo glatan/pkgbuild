@@ -1,15 +1,15 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 # Contributor: Jguer <joaogg3@gmail.com>
 
-pkgname=yay
-pkgver=9.2.0
-pkgrel=1
+pkgname='yay'
+pkgver='9.4.2'
+pkgrel='1'
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
 arch=('x86_64')
 license=('GPL')
 depends=(
-  'pacman'
+  'pacman>=5.2'
   'sudo'
   'git'
 )
@@ -20,11 +20,13 @@ source=(
   "https://gitlab.com/glarch/applications/${pkgname}/-/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.bz2"
 )
 sha512sums=(
-  '5f8b18ac0057dfcaea10e820cc4dcb0670882f8fd10a662c6254bd3ffe5b1160bfae5aeb6efc95815f53ff40193167fe5dd866cd7d74cdfce250503a780978ff'
+  '315d7b2ca6ec345793dcc5428f2ac028943226dbe07417b4ae0a5fe32876d32bce92dcc83a2eaf55fd0d7b778d5910a058d81b46baef1f8c832291bf86a3c2b0'
 )
 
 build() {
   cd "${srcdir}/${pkgname}-v${pkgver}" || exit
+  EXTRA_GOFLAGS="-gcflags all=-trimpath=${PWD} -asmflags all=-trimpath=${PWD}"
+  LDFLAGS="-linkmode external -extldflags \"${LDFLAGS}\""
   make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
 }
 

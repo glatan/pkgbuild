@@ -36,6 +36,10 @@ build:
 clean:
 	@docker exec ${NAME} /makepkg/script/clean.sh ${ARG}
 
+.PHONY: new
+new:
+	@docker exec ${NAME} /makepkg/script/new.sh ${ARG}
+
 .PHONY: updpkgsums
 updpkgsums:
 	@docker exec ${NAME} /makepkg/script/build.sh --updpkgsums ${ARG}

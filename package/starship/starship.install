@@ -1,0 +1,13 @@
+post_install() {
+    _bash_config='Bash: Add "eval "$(starship init bash)"" to ~/.bashrc'
+    _fish_config='fish: Add "starship init fish | source" to ~/.config/fish/config.fish'
+    _zsh_config='Zsh: Add "eval "$(starship init zsh)"" to ~/.zshrc'
+    echo -e "\033[32;1m${_bash_config}\n${_fish_config}\n${_zsh_config}\e[m"
+}
+
+post_remove() {
+    _bash_config='Bash: Remove "eval "$(starship init bash)"" from ~/.bashrc'
+    _fish_config='fish: Remove "starship init fish | source\" from ~/.config/fish/config.fish'
+    _zsh_config='Zsh: Remove "eval "$(starship init zsh)"" from ~/.zshrc'
+    echo -e "\033[32;1m${_bash_config}\n${_fish_config}\n${_zsh_config}\e[m"
+}

@@ -8,23 +8,19 @@ pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
 arch=('x86_64')
 license=('GPL3')
-depends=(
-  'pacman>=5.2'
-  'sudo'
-  'git'
-)
+depends=('pacman>=5.2' 'sudo' 'git')
 makedepends=('go')
 source=("https://github.com/Jguer/${pkgname}/archive/v${pkgver}.tar.gz")
 sha512sums=('8e5164f94fed2b2c480dcfef73c29fd93ff039b2b1da52a460b592c39a64b78c02ce0a6dff4b5ccc023b820c41897abaded62c62637006feb51886535900855e')
 
 build() {
-  cd "${srcdir}/${pkgname}-${pkgver}" || exit
-  EXTRA_GOFLAGS="-gcflags all=-trimpath=${PWD} -asmflags all=-trimpath=${PWD}"
-  LDFLAGS="-linkmode external -extldflags \"${LDFLAGS}\""
-  make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
+    cd "${srcdir}/${pkgname}-${pkgver}" || exit
+    EXTRA_GOFLAGS="-gcflags all=-trimpath=${PWD} -asmflags all=-trimpath=${PWD}"
+    LDFLAGS="-linkmode external -extldflags \"${LDFLAGS}\""
+    make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
 }
 
 package() {
-  cd "${srcdir}/${pkgname}-${pkgver}" || exit
-  make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr' install
+    cd "${srcdir}/${pkgname}-${pkgver}" || exit
+    make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr' install
 }

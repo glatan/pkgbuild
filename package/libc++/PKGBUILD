@@ -12,95 +12,95 @@ license=('MIT' 'custom:University of Illinois/NCSA Open Source License')
 arch=('x86_64')
 depends=('gcc-libs')
 makedepends=(
-  'clang'
-  'cmake'
-  'ninja'
-  'python'
-  'libunwind'
+    'clang'
+    'cmake'
+    'ninja'
+    'python'
+    'libunwind'
 )
 source=(
-  "https://releases.llvm.org/${pkgver}/llvm-${pkgver}.src.tar.xz"
-  "https://releases.llvm.org/${pkgver}/libcxx-${pkgver}.src.tar.xz"
-  "https://releases.llvm.org/${pkgver}/libcxxabi-${pkgver}.src.tar.xz"
+    "https://releases.llvm.org/${pkgver}/llvm-${pkgver}.src.tar.xz"
+    "https://releases.llvm.org/${pkgver}/libcxx-${pkgver}.src.tar.xz"
+    "https://releases.llvm.org/${pkgver}/libcxxabi-${pkgver}.src.tar.xz"
 )
 noextract=("${source[@]##*/}")
 sha512sums=(
-  '1bb3341e1d231559b948f1505b33c2e2e03989f9b8bbfef0e0cdaff5ac43f85574c9ec5ac53399b914f497d6899425d861411024e8d7e1d1a338c1c6951ac658'
-  'cbaca724c4f3e3a270dfd53aac50cbb920190fe55486b164d52e73845819dd22afb10c23f5875da59d433fd5b96a0f153208746117309ac1267a38fa56f4818e'
-  '261f32f61814728ce61c830c80192a55e1ba03c50f49712e208052444ac3acc6d7efcbd7b76a505292f9233aad23b00180aca4e72326ae1244385b39f226e625'
+    '1bb3341e1d231559b948f1505b33c2e2e03989f9b8bbfef0e0cdaff5ac43f85574c9ec5ac53399b914f497d6899425d861411024e8d7e1d1a338c1c6951ac658'
+    'cbaca724c4f3e3a270dfd53aac50cbb920190fe55486b164d52e73845819dd22afb10c23f5875da59d433fd5b96a0f153208746117309ac1267a38fa56f4818e'
+    '261f32f61814728ce61c830c80192a55e1ba03c50f49712e208052444ac3acc6d7efcbd7b76a505292f9233aad23b00180aca4e72326ae1244385b39f226e625'
 )
 
 prepare() {
-  [[ -d llvm ]] || mkdir llvm
-  bsdtar --strip-components 1 --uid 0 --gid 0 -zxf \
-    "${srcdir}/${source[0]##*/}" -C \
-    llvm
-  [[ -d llvm/projects/libcxx ]] || mkdir llvm/projects/libcxx
-  bsdtar --strip-components 1 --uid 0 --gid 0 -zxf \
-    "${srcdir}/${source[1]##*/}" -C \
-    llvm/projects/libcxx
-  [[ -d llvm/projects/libcxxabi ]] || mkdir llvm/projects/libcxxabi
-  bsdtar --strip-components 1 --uid 0 --gid 0 -zxf \
-    "${srcdir}/${source[2]##*/}" -C \
-    llvm/projects/libcxxabi
-  sed -i 's/CREDITS.TXT/CREDITS/' llvm/projects/libcxx/LICENSE.TXT
-  sed -i 's/CREDITS.TXT/CREDITS/' llvm/projects/libcxxabi/LICENSE.TXT
-  [[ -d build ]] || mkdir build
+    [[ -d llvm ]] || mkdir llvm
+    bsdtar --strip-components 1 --uid 0 --gid 0 -zxf \
+        "${srcdir}/${source[0]##*/}" -C \
+        llvm
+    [[ -d llvm/projects/libcxx ]] || mkdir llvm/projects/libcxx
+    bsdtar --strip-components 1 --uid 0 --gid 0 -zxf \
+        "${srcdir}/${source[1]##*/}" -C \
+        llvm/projects/libcxx
+    [[ -d llvm/projects/libcxxabi ]] || mkdir llvm/projects/libcxxabi
+    bsdtar --strip-components 1 --uid 0 --gid 0 -zxf \
+        "${srcdir}/${source[2]##*/}" -C \
+        llvm/projects/libcxxabi
+    sed -i 's/CREDITS.TXT/CREDITS/' llvm/projects/libcxx/LICENSE.TXT
+    sed -i 's/CREDITS.TXT/CREDITS/' llvm/projects/libcxxabi/LICENSE.TXT
+    [[ -d build ]] || mkdir build
 }
 
 build() {
-  cd build || exit
-  cmake \
+    cd build || exit
+    cmake \
     -G Ninja \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_C_COMPILER=clang \
-    -DCMAKE_CXX_COMPILER=clang++ \
-    -DLIBCXX_ENABLE_SHARED=YES \
-    -DLIBCXX_ENABLE_STATIC=NO \
-    -DLIBCXX_INSTALL_EXPERIMENTAL_LIBRARY=NO \
-    "${srcdir}/llvm"
-  ninja cxx cxx_experimental
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_C_COMPILER=clang \
+        -DCMAKE_CXX_COMPILER=clang++ \
+        -DLIBCXX_ENABLE_SHARED=YES \
+        -DLIBCXX_ENABLE_STATIC=NO \
+        -DLIBCXX_INSTALL_EXPERIMENTAL_LIBRARY=NO \
+        "${srcdir}/llvm"
+    ninja cxx cxx_experimental
 }
 
 check() {
-  cd build || exit
-  ninja check-cxx
+    cd build || exit
+    ninja check-cxx
 }
 
 package_libc++() {
-  pkgdesc='LLVM C++ standard library.'
-  depends=("libc++abi=${pkgver}-${pkgrel}")
-  cd "${srcdir}/build" || exit
-  DESTDIR="${pkgdir}" ninja install-libcxx
+    pkgdesc='LLVM C++ standard library.'
+    depends=("libc++abi=${pkgver}-${pkgrel}")
+    cd "${srcdir}/build" || exit
+    DESTDIR="${pkgdir}" ninja install-libcxx
 
-  # Remove ABI headers.
-  rm "${pkgdir}/usr/include/c++/v1/cxxabi.h"
-  rm "${pkgdir}/usr/include/c++/v1/__cxxabi_config.h"
+    # Remove ABI headers.
+    rm "${pkgdir}/usr/include/c++/v1/cxxabi.h"
+    rm "${pkgdir}/usr/include/c++/v1/__cxxabi_config.h"
 
-  # Remove experimental headers.
-  rm -rf "${pkgdir}/usr/include/c++/v1/experimental"
+    # Remove experimental headers.
+    rm -rf "${pkgdir}/usr/include/c++/v1/experimental"
 
-  # License.
-  install -Dm644 "${srcdir}/llvm/projects/libcxx/CREDITS.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/CREDITS"
-  install -Dm644 "${srcdir}/llvm/projects/libcxx/LICENSE.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    # License.
+    install -Dm644 "${srcdir}/llvm/projects/libcxx/CREDITS.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/CREDITS"
+    install -Dm644 "${srcdir}/llvm/projects/libcxx/LICENSE.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 package_libc++abi() {
-  pkgdesc='Low level support for the LLVM C++ standard library.'
-  cd "${srcdir}/build" || exit
-  DESTDIR="${pkgdir}" ninja install-libcxxabi
-  install -Dm644 "${srcdir}/build/include/c++/v1/cxxabi.h" "${pkgdir}/usr/include/c++/v1/cxxabi.h"
-  install -Dm644 "${srcdir}/build/include/c++/v1/__cxxabi_config.h" "${pkgdir}/usr/include/c++/v1/__cxxabi_config.h"
-  install -Dm644 "${srcdir}/llvm/projects/libcxxabi/CREDITS.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/CREDITS"
-  install -Dm644 "${srcdir}/llvm/projects/libcxxabi/LICENSE.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    pkgdesc='Low level support for the LLVM C++ standard library.'
+    cd "${srcdir}/build" || exit
+    DESTDIR="${pkgdir}" ninja install-libcxxabi
+    install -Dm644 "${srcdir}/build/include/c++/v1/cxxabi.h" "${pkgdir}/usr/include/c++/v1/cxxabi.h"
+    install -Dm644 "${srcdir}/build/include/c++/v1/__cxxabi_config.h" "${pkgdir}/usr/include/c++/v1/__cxxabi_config.h"
+    install -Dm644 "${srcdir}/llvm/projects/libcxxabi/CREDITS.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/CREDITS"
+    install -Dm644 "${srcdir}/llvm/projects/libcxxabi/LICENSE.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 package_libc++experimental() {
-  depends=("libc++=${pkgver}-${pkgrel}")
-  pkgdesc='LLVM C++ experimental library.'
-  install -Dm644 "${srcdir}/build/lib/libc++experimental.a" "${pkgdir}/usr/lib/libc++experimental.a"
-  install -Dm644 -t "${pkgdir}/usr/include/c++/v1/experimental" "${srcdir}"/build/include/c++/v1/experimental/*
-  install -Dm644 "${srcdir}/llvm/projects/libcxx/CREDITS.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/CREDITS"
-  install -Dm644 "${srcdir}/llvm/projects/libcxx/LICENSE.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    depends=("libc++=${pkgver}-${pkgrel}")
+    pkgdesc='LLVM C++ experimental library.'
+    install -Dm644 "${srcdir}/build/lib/libc++experimental.a" "${pkgdir}/usr/lib/libc++experimental.a"
+    install -Dm644 -t "${pkgdir}/usr/include/c++/v1/experimental" "${srcdir}"/build/include/c++/v1/experimental/*
+    install -Dm644 "${srcdir}/llvm/projects/libcxx/CREDITS.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/CREDITS"
+    install -Dm644 "${srcdir}/llvm/projects/libcxx/LICENSE.TXT" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }

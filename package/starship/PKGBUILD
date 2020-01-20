@@ -1,7 +1,7 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 
 pkgname='starship'
-pkgver='0.25.2'
+pkgver='0.33.1'
 pkgrel='1'
 pkgdesc='The cross-shell prompt for astronauts.'
 arch=('x86_64')
@@ -13,21 +13,21 @@ checkdepends=('rust')
 optdepends=('powerline-font: powerline symbols for terminal')
 install="${pkgname}.install"
 source=("https://github.com/${pkgname}/${pkgname}/archive/v${pkgver}.tar.gz")
-sha512sums=('3666dac377030dd5a4034cf9843aced5cba7f4e146d1c83e311fd277191decb04cb79e5f270257a9d1c1f136bd49ff50de2b1e4ebeab2cda4a14a016b7d0663a')
+sha512sums=('b44b0283f0b37557545623b4ed9c24f3cd15f81507ddabd1358835165260ca30d185f34adde7b8698086e02b4f5fa480c3f150cec382d2f91ead968d5eab67d9')
+b2sums=('475a67b7b4128a5bbc1b65657459b41c1fe595e46ea38de3a0b898482aa7da5b09a5c8042f6e3dfbba22f6bff0567102a3fc08b4f3f5762407b97a0fd50ac0e5')
 
 build() {
-	cd "${pkgname}-${pkgver}"
+	cd "${pkgname}-${pkgver}" || exit
 	cargo build --release --locked
 }
 
 check() {
-	cd "${pkgname}-${pkgver}"
-	# "cargo test --release --locked" does not pass now
+	cd "${pkgname}-${pkgver}" || exit
 	cargo test --locked
 }
 
 package() {
-	cd "${pkgname}-${pkgver}"
+	cd "${pkgname}-${pkgver}" || exit
 	install -Dm755 "target/release/${pkgname}" -t "${pkgdir}/usr/bin"
-	install -Dm644 "LICENSE" -t "${pkgdir}/usr/share/licenses/${pkgname}"
+	install -Dm644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }

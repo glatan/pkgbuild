@@ -1,0 +1,19 @@
+# Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
+
+pkgname='numix-icon-theme'
+pkgver='19.09.20'
+pkgrel='1'
+pkgdesc='Official icon theme for Numix Project'
+arch=('any')
+url='https://numixproject.github.io/'
+license=('GPL3')
+provides=('numix-icon-theme' 'numix-icon-theme-light')
+options=('!strip')
+source=("https://github.com/numixproject/${pkgname}/archive/${pkgver}.tar.gz")
+sha512sums=('33887291c6322c3a78162c86e8d81b882c5483d00bd14ebd1238eb5aec800e8d2f8e5a01c24d96491dd569495242ea196995a130ec5a8957e10e9068ae252d1b')
+b2sums=('84c786784bf9099aca30f86eebea4931e2ab35e83531642ebf4394d23b5fb317d1f0d296b82e7db8d894936222f582a7012d510dd27bf9b91cf74ddf435e0dba')
+
+package() {
+    install -dm755 "${pkgdir}/usr/share/icons"
+    cp -dr --no-preserve='ownership' "${srcdir}/${pkgname}-${pkgver}"/Numix{,-Light} "${pkgdir}/usr/share/icons/"
+}

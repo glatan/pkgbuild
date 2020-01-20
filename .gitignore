@@ -5,6 +5,8 @@
 !package/
 !package/*/
 !package/AUR/*/
+!release/
+!release/.gitkeep
 !script/
 
 # rootfile
@@ -23,5 +25,6 @@
 !package/AUR/*/*.protocol
 
 # some script
-!script/clean.sh
 !script/build.sh
+!script/new.sh
+!script/updpkgsums.sh

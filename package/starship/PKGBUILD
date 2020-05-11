@@ -2,7 +2,7 @@
 
 pkgname='starship'
 pkgver='0.41.0'
-pkgrel='1'
+pkgrel='2'
 pkgdesc='The cross-shell prompt for astronauts.'
 arch=('x86_64')
 url='https://starship.rs/'
@@ -23,7 +23,7 @@ build() {
 
 check() {
 	cd "${pkgname}-${pkgver}" || exit
-	cargo test --locked
+	cargo test --release --locked
 }
 
 package() {

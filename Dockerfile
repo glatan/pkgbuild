@@ -10,6 +10,8 @@ RUN : \
     # Add user for makepkg
     && useradd -m -g users -s /usr/bin/bash makepkg \
     && echo 'makepkg ALL=(ALL) NOPASSWD: /usr/bin/pacman' >> /etc/sudoers \
+    # Add [glarch] to pacman.conf
+    && echo -e "[glarch]\nSigLevel = Never\nServer = https://github.com/glatan/pkgbuild/releases/download/x86_64/\n" >> /etc/pacman.conf \
     # Add packager to makepkg.conf
     && sed -i -e "s/#PACKAGER=\"John Doe <john@doe.com>\"/PACKAGER='glatan <glatan.edu@gmail.com>'/g" /etc/makepkg.conf \
     # Change package compression alogolithm

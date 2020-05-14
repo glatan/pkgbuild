@@ -1,0 +1,25 @@
+# Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
+
+pkgname='wasm-pack'
+pkgver='0.9.1'
+pkgrel='1'
+pkgdesc='Your favorite Rust → Wasm workflow tool!'
+arch=('x86_64')
+url='https://rustwasm.github.io/wasm-pack/'
+license=('Apache' 'custom:MIT')
+depends=('curl')
+makedepends=('rust')
+source=("https://github.com/rustwasm/${pkgname}/archive/v${pkgver}.tar.gz")
+sha512sums=('c5a4423cbdc4cb1b27d6baa7a80c1ba222310bb5f154a701a9f107e27a9ce3250195d474cc55770d2a0166723f89dc1faf1403710beb3f3eba20997da898720c')
+b2sums=('7cfb2758f9ad38b7636e6ccdb9c32e0364bca553bc264f1f86467e2fcb10865d47e3577c0f75f5b27f19d2d4bed2601099adf90340317c05f6a558a412e0601a')
+
+build() {
+	cd "${pkgname}-${pkgver}" || exit
+	cargo build --release --locked
+}
+
+package() {
+	cd "${pkgname}-${pkgver}" || exit
+	install -Dm755 "target/release/${pkgname}" -t "${pkgdir}/usr/bin"
+	install -Dm644 LICENSE-MIT -t "${pkgdir}/usr/share/licenses/${pkgname}"
+}

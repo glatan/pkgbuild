@@ -1,0 +1,35 @@
+# Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
+
+pkgname='wasmtime'
+pkgver='0.15.0'
+pkgrel='1'
+pkgdesc='Standalone JIT-style runtime for WebAssembly, using Cranelift.'
+arch=('x86_64')
+url='https://wasmtime.dev/'
+license=('Apache')
+depends=('gcc-libs')
+makedepends=('git' 'rust')
+checkdepends=('rust')
+source=("git+https://github.com/bytecodealliance/wasmtime.git?#tag=v${pkgver}")
+sha512sums=('SKIP')
+b2sums=('SKIP')
+
+prepare() {
+	cd "${pkgname}" || exit
+	git submodule update --init --recursive
+}
+
+build() {
+	cd "${pkgname}" || exit
+	cargo build --release --locked
+}
+
+check() {
+	cd "${pkgname}" || exit
+	cargo test --release --locked
+}
+
+package() {
+	cd "${pkgname}" || exit
+	install -Dm755 "target/release/${pkgname}" -t "${pkgdir}/usr/bin"
+}

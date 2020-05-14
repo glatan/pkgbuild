@@ -7,6 +7,7 @@ pkgdesc='A secure runtime for JavaScript and TypeScript.'
 arch=('x86_64')
 url='https://deno.land/'
 license=('custom:MIT')
+depends=('gcc-libs')
 makedepends=('git' 'python2' 'rust')
 checkdepends=('rust')
 source=("git+https://github.com/denoland/${pkgname}.git?#tag=v${pkgver}")

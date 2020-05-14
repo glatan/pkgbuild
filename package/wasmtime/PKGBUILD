@@ -7,6 +7,7 @@ pkgdesc='Standalone JIT-style runtime for WebAssembly, using Cranelift.'
 arch=('x86_64')
 url='https://wasmtime.dev/'
 license=('Apache')
+depends=('gcc-libs')
 makedepends=('git' 'rust')
 checkdepends=('rust')
 source=("git+https://github.com/bytecodealliance/wasmtime.git?#tag=v${pkgver}")

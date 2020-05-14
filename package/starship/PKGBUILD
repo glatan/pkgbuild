@@ -2,12 +2,12 @@
 
 pkgname='starship'
 pkgver='0.41.0'
-pkgrel='2'
+pkgrel='1'
 pkgdesc='The cross-shell prompt for astronauts.'
 arch=('x86_64')
 url='https://starship.rs/'
 license=('custom:ISC')
-depends=('gcc-libs' 'zlib')
+depends=('openssl' 'zlib')
 makedepends=('rust')
 checkdepends=('rust')
 optdepends=('powerline-font: powerline symbols for terminal')
@@ -23,7 +23,7 @@ build() {
 
 check() {
 	cd "${pkgname}-${pkgver}" || exit
-	cargo test --release --locked
+	cargo test --locked
 }
 
 package() {

@@ -7,8 +7,7 @@ pkgdesc='Standalone JIT-style runtime for WebAssembly, using Cranelift.'
 arch=('x86_64')
 url='https://wasmtime.dev/'
 license=('Apache')
-depends=('gcc-libs')
-makedepends=('rust')
+makedepends=('git' 'rust')
 checkdepends=('rust')
 source=("git+https://github.com/bytecodealliance/wasmtime.git?#tag=v${pkgver}")
 sha512sums=('SKIP')
@@ -16,7 +15,7 @@ b2sums=('SKIP')
 
 prepare() {
 	cd "${pkgname}" || exit
-	git submodule update --init
+	git submodule update --init --recursive
 }
 
 build() {

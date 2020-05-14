@@ -8,6 +8,7 @@ arch=('x86_64')
 url='https://deno.land/'
 license=('custom:MIT')
 makedepends=('git' 'python2' 'rust')
+checkdepends=('rust')
 source=("git+https://github.com/denoland/${pkgname}.git?#tag=v${pkgver}")
 sha512sums=('SKIP')
 b2sums=('SKIP')

@@ -11,6 +11,7 @@
 
 # rootfile
 !.gitignore
+!Dockerfile
 !Makefile
 
 # package files

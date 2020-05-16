@@ -5,11 +5,11 @@
 !package/
 !package/*/
 !release/
-!release/.gitkeep
 !script/
 
 # rootfile
 !.gitignore
+!.gitattributes
 !Dockerfile
 !Makefile
 
@@ -18,6 +18,10 @@
 !package/*/PKGBUILD
 !package/*/*.install
 !package/*/*.protocol
+
+!release/*.db*
+!release/*.files*
+!release/*.pkg.tar.zst
 
 # some script
 !script/build.sh

@@ -7,4 +7,4 @@ yum install -y git-lfs
 git clone https://gitlab.com/glatan/pkgbuild.git
 cd pkgbuild || exit
 git lfs pull
-cp -rf release ../release
+cp -rf release/* ../release/

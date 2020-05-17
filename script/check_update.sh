@@ -27,6 +27,7 @@ declare -A REMOTE_REPOSITORY # Key: pkgname, Value: pkgver
 
 declare MAX_PKGNAME_LENGTH='7' # echo -n 'package' | wc -m
 declare MAX_REPOPKG_VERSION_LENGTH='10' # echo -n 'repository' | wc -m
+pacman -Sy --noconfirm -b release/
 for pkg in $(pacman -Sl ${REPOSITORY_NAME} -b release | awk '{printf "%s:%s\n", $2, $3}'); do
     _pkgname="$(echo "${pkg}" | awk -F ':' '{print $1}')"
     _repopkg_version="$(echo "${pkg}" | awk -F ':' '{print $2}' | awk -F '-' '{print $1}')"

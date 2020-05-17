@@ -1,0 +1,8 @@
+latest_version() {
+    curl -s "https://api.github.com/repos/starship/starship/tags" \
+        | jq -r "[.[].name] \
+            | map(select(test(\"^v\\\\d+\\\\.\\\\d+\\\\.\\\\d+$\"))) \
+            | sort \
+            | max" \
+        | awk -F 'v' '{print $2}'
+}

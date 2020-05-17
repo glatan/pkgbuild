@@ -1,0 +1,7 @@
+latest_version() {
+    curl -s "https://api.github.com/repos/numixproject/numix-icon-theme-circle/tags" \
+        | jq -r ".[].name \
+            | select(test(\"^\\\\d+\\\\.\\\\d+\\\\.\\\\d+$\"))" \
+        | awk '{printf "%s ", $1}' \
+        | compare_versions
+}

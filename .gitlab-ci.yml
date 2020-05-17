@@ -4,7 +4,7 @@ stages:
   - check
 
 before_script:
-  - echo -e "[glarch]\nSigLevel = Never\nServer = hhttps://gitlab.com/glatan/pkgbuild/-/raw/master/release/\n" >> /etc/pacman.conf
+  - echo -e "[glarch]\nSigLevel = Never\nServer = https://gitlab.com/glatan/pkgbuild/-/raw/master/release/\n" >> /etc/pacman.conf
   - pacman -Syyu --noconfirm
   - pacman -S --noconfirm awk jq
 

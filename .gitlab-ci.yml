@@ -1,0 +1,16 @@
+image: archlinux/base:latest
+
+stages:
+  - check
+
+before_script:
+  - pacman -Syyu --noconfirm
+  - pacman -S --noconfirm awk jq
+
+Check_Update:
+  stage: check
+  only:
+    refs:
+      - master
+  script:
+    - script/check_update.sh

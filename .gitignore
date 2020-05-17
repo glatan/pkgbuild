@@ -8,8 +8,9 @@
 !script/
 
 # rootfile
-!.gitignore
 !.gitattributes
+!.gitignore
+!.gitlab-ci.yml
 !Dockerfile
 !Makefile
 

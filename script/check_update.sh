@@ -2,6 +2,8 @@
 
 set -u
 
+declare EXIT_CODE='0'
+
 # Input: array
 # Output: string
 compare_versions() {
@@ -51,11 +53,13 @@ for pkg in *; do
     _remote_version="${REMOTE_REPOSITORY["${pkg}"]}"
     _latest_version="$(latest_version)"
     case "$(vercmp "${_remote_version}" "${_latest_version}")" in
-        '1' ) FONT_WIDTH="${INVALID_VERSION}" ;; # greater than
+        '1' ) FONT_WIDTH="${INVALID_VERSION}"; EXIT_CODE='1' ;; # greater than
         '0' ) FONT_WIDTH="${DEFAULT_TEXT}" ;; # equal
-        '-1') FONT_WIDTH="${NEEDS_UPDATE}" ;; # less than
+        '-1') FONT_WIDTH="${NEEDS_UPDATE}"; EXIT_CODE='1' ;; # less than
         * ) exit ;;
     esac
     print_ressult "${pkg}" "${_remote_version}" "${_latest_version}"
     cd ../ || exit
 done
+
+exit "${EXIT_CODE}"

@@ -8,14 +8,16 @@
 !script/
 
 # rootfile
-!.gitignore
 !.gitattributes
+!.gitignore
+!.gitlab-ci.yml
 !Dockerfile
 !Makefile
 
 # package files
 !package/*/LICENSE
 !package/*/PKGBUILD
+!package/*/*.checkupdate
 !package/*/*.install
 !package/*/*.protocol
 
@@ -25,5 +27,6 @@
 
 # some script
 !script/build.sh
+!script/check_update.sh
 !script/new.sh
 !script/updpkgsums.sh

@@ -6,6 +6,8 @@ RUN : \
     && pacman -S --noconfirm \
         base-devel \
         git \
+        git-lfs \
+        jq \
         pacman-contrib \
     # Add user for makepkg
     && useradd -m -g users -s /usr/bin/bash makepkg \

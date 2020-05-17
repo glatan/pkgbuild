@@ -18,6 +18,11 @@ p.build:
 	-@podman run --name $@ -v .:${WORKDIR} -w ${WORKDIR} -it ${CONTAINER_NAME} script/updpkgsums.sh $*
 	@podman rm $@
 
+.PHONY: check.update
+check.update:
+	-@podman run --name $@ -v .:${WORKDIR} -w ${WORKDIR} -it ${CONTAINER_NAME} script/check_update.sh
+	@podman rm $@
+
 .PHONY: clean
 clean:
 	@git clean -dfX

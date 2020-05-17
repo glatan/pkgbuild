@@ -29,4 +29,5 @@
 !script/build.sh
 !script/check_update.sh
 !script/new.sh
+!script/now.sh
 !script/updpkgsums.sh

@@ -27,6 +27,11 @@ check.update:
 clean:
 	@git clean -dfX
 
+.PHONY: repo.update
+repo.update:
+	-@podman run --name $@ -v .:${WORKDIR} -w ${WORKDIR} -it ${CONTAINER_NAME} script/repo_update.sh
+	@podman rm $@
+
 .PHONY: run.bash
 run.bash:
 	-@podman run --name $@ -v .:${WORKDIR} -w ${WORKDIR} -it ${CONTAINER_NAME} bash

@@ -17,8 +17,8 @@ compare_versions() {
 
 # $1: pkgname, $2: remote_pkgver, $3: latest_pkgver $4
 print_ressult() {
-    eval "printf \"${ESC}m%-${MAX_PKGNAME_LENGTH}s${ESC}[m\t\" $1"
-    eval "printf \"${ESC}m%-${MAX_REPOPKG_VERSION_LENGTH}s${ESC}[m\t\" $2"
+    eval "printf \"${ESC}[m%-${MAX_PKGNAME_LENGTH}s${ESC}[m\t\" $1"
+    eval "printf \"${ESC}[m%-${MAX_REPOPKG_VERSION_LENGTH}s${ESC}[m\t\" $2"
     eval "printf \"${ESC}[${FONT_WIDTH}%s${ESC}[m\n\" $3"
 }
 

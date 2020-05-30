@@ -1,0 +1,55 @@
+# PKGBUILD
+
+## pacman.conf
+
+```text
+[glarch]
+SigLevel = Never
+Server = https://gitlab.com/glatan/pkgbuild/-/raw/master/release/
+Server = https://pkgbuild.glatan.now.sh/
+```
+
+## Packages
+
+|Name|Version|
+|-|-|
+|deno|1.0.3|
+|numix-icon-theme|20.03.20|
+|numix-icon-theme-circle|19.12.27|
+|starship|0.41.3|
+|ttf-cica|5.0.1|
+|wasm-pack|0.9.1|
+|wasmtime|0.16.0|
+|yay|9.4.7|
+
+## Makefile
+
+%: pkgname
+
+### p.build
+
+Build Podman container.
+
+### %.build
+
+Build package.
+
+### %.new
+
+Init new package.
+
+### %.updatepkgsums
+
+Update checksums.
+
+### check.update
+
+Check repository-source update.
+
+### clean
+
+Remove untracked files.
+
+### run.bash
+
+Run GNU bash on Podman container.

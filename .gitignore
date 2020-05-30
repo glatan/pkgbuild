@@ -13,6 +13,7 @@
 !.gitlab-ci.yml
 !Dockerfile
 !Makefile
+!README.md
 
 # package files
 !package/*/LICENSE

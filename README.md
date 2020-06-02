@@ -13,7 +13,7 @@ Server = https://pkgbuild.glatan.now.sh/
 
 |Name|Version|
 |-|-|
-|deno|1.0.3|
+|deno|1.0.4|
 |numix-icon-theme|20.03.20|
 |numix-icon-theme-circle|19.12.27|
 |starship|0.41.3|

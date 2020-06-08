@@ -1,7 +1,7 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 
 pkgname='numix-icon-theme'
-pkgver='20.03.20'
+pkgver='20.06.07'
 pkgrel='1'
 pkgdesc='Official icon theme for Numix Project'
 arch=('any')
@@ -10,8 +10,8 @@ license=('GPL3')
 provides=('numix-icon-theme' 'numix-icon-theme-light')
 options=('!strip')
 source=("https://github.com/numixproject/${pkgname}/archive/${pkgver}.tar.gz")
-sha512sums=('417f50a13fa60292abc17381678d482d2b1f6f0df2ca7e97dfd3070fa3a563adb5cdbb33ce9853c80fdb7a90abba61263d064f212655149df7fe4cdea751097e')
-b2sums=('a2f31ccff9326cc96c7f77c2acdd8f2c24698d6331bff73afcb0a2c80277b0c58b9527e063987b44867d7fe6f1586b454f29d29b5de3b3d69f43c245c29a6986')
+sha512sums=('8ab26fe047d1ab7002a9cd1b21406c5565153dfd9fea7267945f8f9eeaac299b6b7601340c22d933c9e28c522cff300596aac6d589b0080d44746441d5494f6d')
+b2sums=('80f5220da0b0361ddaa27c178c0d1e75e34d970e6b25bd175a44b854c8e340e0cb37a5d6ac64aaa73d05b9570efdad0d40d268dc0a15836b41ec680e92a4ea13')
 
 package() {
     install -dm755 "${pkgdir}/usr/share/icons"

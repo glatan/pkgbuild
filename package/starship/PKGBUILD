@@ -1,20 +1,20 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 
 pkgname='starship'
-pkgver='0.41.3'
+pkgver='0.42.0'
 pkgrel='1'
 pkgdesc='The cross-shell prompt for astronauts.'
 arch=('x86_64')
 url='https://starship.rs/'
-license=('custom:ISC')
+license=('ISC')
 depends=('openssl' 'zlib')
 makedepends=('rust')
 checkdepends=('rust')
 optdepends=('powerline-font: powerline symbols for terminal')
 install="${pkgname}.install"
 source=("https://github.com/${pkgname}/${pkgname}/archive/v${pkgver}.tar.gz")
-sha512sums=('ec0cb5d0b552e64b6306a130e9350073af09b733ce7bc0588fe97644e40b4aad0eff1dbc3c7c02f5c844123d87db75fea9e212ce021380cff3f1bef9e890031c')
-b2sums=('03ec135c34e6e7e0debc461e436027069aa03a6d61311ff639218140b6f5fc9c54cff2a8c28cd8274158ffc946e5e22dbccf97c660c5a4a4d895cd7b27528330')
+sha512sums=('2e12db90cb4c763d22770fe06c0530c37f4078b1f6e8296ab18c3a455bcc2c8bd992d13df7174d88247a9e9406bfc1d53a4ca2dbe53c38f091a9f3eec0c76689')
+b2sums=('9093ecb1d6db3cfc32ba811b441465245b631db6035e7f86da6ca4df28e7592c188d7a044a127e2e0867c22f06c57f5aa45163ae0f318a31664a88b375161ecc')
 
 build() {
 	cd "${pkgname}-${pkgver}" || exit

@@ -13,10 +13,10 @@ Server = https://pkgbuild.glatan.now.sh/
 
 |Name|Version|
 |-|-|
-|deno|1.0.4|
-|numix-icon-theme|20.03.20|
-|numix-icon-theme-circle|19.12.27|
-|starship|0.41.3|
+|deno|1.0.5|
+|numix-icon-theme|20.06.07|
+|numix-icon-theme-circle|20.06.07|
+|starship|0.42.0|
 |ttf-cica|5.0.1|
 |wasm-pack|0.9.1|
 |wasmtime|0.16.0|

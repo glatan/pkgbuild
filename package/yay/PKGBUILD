@@ -2,23 +2,23 @@
 # Contributor: Jguer <joaogg3@gmail.com>
 
 pkgname='yay'
-pkgver='9.4.7'
+pkgver='10.0.0'
 pkgrel='1'
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
 arch=('x86_64')
 license=('GPL3')
-depends=('pacman>=5.2' 'sudo' 'git')
-makedepends=('go-pie')
+depends=('libalpm.so>=12' 'sudo' 'git')
+makedepends=('go')
 source=("https://github.com/Jguer/${pkgname}/archive/v${pkgver}.tar.gz")
-sha512sums=('825cf2dd9b9c6ebd0cdf0e13fca6be5eb77fd6154ea43dade39fa41a2b7470a11545cb4e97a2d19d76c7917c1ef008f1346f4383f48b83f9fe7a142758ed0b73')
-b2sums=('64a3be033bfd6b8d80c01cadc6666de7c5aaca39e9b92aba3cbd738bdc3aa6b2d178a9c0b6836feea60277d23e35480d6c7c6965a71744123fa70b43b52721d4')
+sha512sums=('194a0fa9fc113636059f4bc94be3057675affb84bf56cb0a2cf3f73e6d93086275cfc4b5a187a3c44d7ecabfeed466c006cb042b65233c393d30bcaf6b447bf0')
+b2sums=('52d08dee2f0efc0e6a17f315f4b61df09ad9c9da451ab24bee9a92d731763a42cc22c9e986b36427efb9b43e48cc6e5d08f56bdd14ac9ee76ef7f769547a77d7')
 
 build() {
     cd "${srcdir}/${pkgname}-${pkgver}" || exit
-    EXTRA_GOFLAGS="-gcflags all=-trimpath=${PWD} -asmflags all=-trimpath=${PWD}" \
-        LDFLAGS="-linkmode external -extldflags \"${LDFLAGS}\"" \
-        make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
+    export EXTRA_GOFLAGS='-buildmode=pie -trimpath -mod=readonly -modcacherw'
+    export LDFLAGS="-linkmode external -extldflags \"${LDFLAGS}\""
+    make VERSION="${pkgver}" DESTDIR="${pkgdir}" PREFIX='/usr'
 }
 
 package() {

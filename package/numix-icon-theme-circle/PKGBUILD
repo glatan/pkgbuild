@@ -4,8 +4,8 @@
 # Contributor: Alex Gajewski <agajews@gmail.com>
 
 pkgname='numix-icon-theme-circle'
-pkgver='20.06.07'
-pkgrel='2'
+pkgver='20.07.11'
+pkgrel='1'
 pkgdesc='An icon theme for Linux from the Numix Project'
 arch=('any')
 url='https://numixproject.github.io/'
@@ -15,8 +15,8 @@ provides=('numix-icon-theme-circle' 'numix-icon-theme-circle-light')
 replaces=('numix-circle-icon-theme')
 options=('!strip')
 source=("https://github.com/numixproject/${pkgname}/archive/${pkgver}.tar.gz")
-sha512sums=('21eeb521d0ab1a921ce126d63689317fe1b8031e7d661cf530e07bd6b6e51547a4fab2292986b4bf9cef26812011e46a62646fef2344c0d7573e9fe9b93ee137')
-b2sums=('b056ab28a78e4c91684abc7527d39c68950a143f7bd9d9db67132b0622657f5c4e7b80decddf7bf3102d389af082ebfdbf39797f2eb16f1364adb70fa2d78b9f')
+sha512sums=('21550994b798387c9e93ecd6d7d73611744fd7bacc061306d0671e27d309608992d148081840f9857728dfa72aff4b288a6f0e57d34af727f29a0b6f89553560')
+b2sums=('feab9f36671de413b15ebfbb122435c0bb6e632373526372680722137e9e74f5312aecc95682a0edd8ee356d070762b35bddb99e2781013a88dacd60e2286abe')
 
 package() {
     install -dm755 "${pkgdir}/usr/share/icons"

@@ -2,7 +2,7 @@
 # Contributor: yuhr <sdn.pate(at)gmail.com>
 
 pkgname='ttf-cica'
-pkgver='5.0.1'
+pkgver='5.0.2'
 pkgrel='1'
 pkgdesc='Composite font with Ubuntu Mono and Rounded Mgen+.'
 url='https://github.com/miiton/Cica'
@@ -12,7 +12,7 @@ depends=('fontconfig')
 replaces=('cica')
 install="${pkgname}.install"
 source=("https://github.com/miiton/Cica/releases/download/v${pkgver}/Cica_v${pkgver}_with_emoji.zip")
-sha512sums=('9754e050add46fcf4a3ad906cde391f7d2019615024ce0d3bbb1178b724094707d3f116b73191b96779bd2739780e38c5854b3a04a6e90d95ac4d751fc2f5e8e')
+sha512sums=('16e8a138b77dced9cbadf7695e9c1c816d5e0e019e06c23b048836d9f998a560cc5518c34362b17a52b83127e7201105dadd0af200594624ee1cca20f0aeb59f')
 
 package() {
     install -dm755 "${pkgdir}/usr/share/fonts/TTF"

@@ -14,6 +14,8 @@ p.build:
 	-@podman run --name $@ -v .:${WORKDIR} -w ${WORKDIR} -it ${CONTAINER_NAME} script/new.sh $*
 	@podman rm $@
 
+%.update: %.updpkgsums %.build repo.update readme.update
+
 %.updpkgsums: package/%/PKGBUILD
 	-@podman run --name $@ -v .:${WORKDIR} -w ${WORKDIR} -it ${CONTAINER_NAME} script/updpkgsums.sh $*
 	@podman rm $@

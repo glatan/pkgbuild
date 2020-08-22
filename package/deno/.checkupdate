@@ -1,7 +1,0 @@
-latest_version() {
-    curl -s "https://api.github.com/repos/denoland/deno/tags" \
-        | jq -r ".[].name \
-            | select(test(\"^v\\\\d+\\\\.\\\\d+\\\\.\\\\d+$\"))" \
-        | awk -F 'v' '{printf "%s ", $2}' \
-        | compare_versions
-}

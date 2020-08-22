@@ -31,5 +31,6 @@
 !script/check_update.sh
 !script/new.sh
 !script/now.sh
+!script/readme_update.sh
 !script/repo_update.sh
 !script/updpkgsums.sh

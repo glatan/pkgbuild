@@ -13,14 +13,13 @@ Server = https://pkgbuild.glatan.vercel.app/
 
 |Name|Version|
 |-|-|
-|deno|1.1.1|
-|numix-icon-theme|20.06.07|
-|numix-icon-theme-circle|20.06.07|
-|starship|0.42.0|
-|ttf-cica|5.0.1|
-|wasm-pack|0.9.1|
-|wasmtime|0.16.0|
-|yay|10.0.1|
+|numix-icon-theme|20.06.07-1|
+|numix-icon-theme-circle|20.07.11-1|
+|starship|0.44.0-1|
+|ttf-cica|5.0.2-1|
+|wasm-pack|0.9.1-1|
+|wasmtime|0.19.0-1|
+|yay|10.0.4-1|
 
 ## Makefile
 

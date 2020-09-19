@@ -1,0 +1,36 @@
+# Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
+
+pkgname='xkcp-git'
+pkgver='r311.574bc73'
+pkgrel='1'
+pkgdesc='eXtended Keccak Code Package'
+arch=('x86_64')
+url='https://github.com/XKCP/XKCP'
+license=('custom:CC0' 'BSD')
+depends=('glibc')
+makedepends=('libxslt')
+source=("${pkgname}::git+https://github.com/XKCP/XKCP.git#branch=master")
+sha512sums=('SKIP')
+b2sums=('SKIP')
+pkgver() {
+	cd "${pkgname}" || exit
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+_target='generic64'
+
+build() {
+	cd "${srcdir}/${pkgname}" || exit
+	make "${_target}/libXKCP.so"
+}
+
+check() {
+	cd "${srcdir}/${pkgname}" || exit
+	make "${_target}/UnitTests"
+}
+
+package() {
+	cd "${srcdir}/${pkgname}" || exit
+	install -Dm644 "bin/${_target}/libXKCP.so.headers/"* -t "${pkgdir}/usr/include/xkcp"
+	install -Dm644 "bin/${_target}/libXKCP.so" -t "${pkgdir}/usr/lib"
+	install -Dm644 ../../LICENSE.* -t "${pkgdir}/usr/share/licenses/${pkgname}"
+}

@@ -9,16 +9,13 @@ RUN : \
         git-lfs \
         jq \
         pacman-contrib \
+        rsync \
     # Add user for makepkg
     && useradd -m -g users -s /usr/bin/bash makepkg \
     && echo 'makepkg ALL=(ALL) NOPASSWD: /usr/bin/pacman' >> /etc/sudoers \
-    # Add [glarch] to pacman.conf
-    && echo -e "[glarch]\nSigLevel = Never\nServer = https://gitlab.com/glatan/pkgbuild/-/raw/master/release/\n" >> /etc/pacman.conf \
-    # Add packager to makepkg.conf
-    && sed -i -e "s/#PACKAGER=\"John Doe <john@doe.com>\"/PACKAGER='glatan <glatan.edu@gmail.com>'/g" /etc/makepkg.conf \
-    # Change package compression alogolithm
-    # zstd is faster than xz
-    && sed -i -e "s/pkg.tar.xz/pkg.tar.zst/g" /etc/makepkg.conf \
+    # apply my dotfiles
+    && curl 'https://dotfiles.glatan.vercel.app' > install.sh \
+    && bash install.sh --apply-root \
     # Proxy
     && echo 'Defaults env_keep="http_proxy https_proxy"' >> /etc/sudoers \
     # Clear cache

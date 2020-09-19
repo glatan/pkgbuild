@@ -16,7 +16,7 @@
 !README.md
 
 # package files
-!package/*/LICENSE
+!package/*/LICENSE*
 !package/*/PKGBUILD
 !package/*/*.checkupdate
 !package/*/*.install

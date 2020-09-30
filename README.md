@@ -15,7 +15,7 @@ Server = https://pkgbuild.glatan.vercel.app/
 |-|-|
 |numix-icon-theme|20.06.07-1|
 |numix-icon-theme-circle|20.09.19-1|
-|starship|0.44.0-1|
+|starship|0.45.0-1|
 |ttf-cica|5.0.2-1|
 |wasm-pack|0.9.1-1|
 |wasmtime|0.19.0-1|

@@ -1,0 +1,35 @@
+# Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
+
+pkgname='mint'
+pkgver='0.10.0'
+pkgrel='1'
+pkgdesc='The programming language for writing single page applications.'
+arch=('x86_64')
+url='https://www.mint-lang.com/'
+license=('BSD')
+depends=('gc' 'pcre' 'libevent' 'libxml2')
+makedepends=('crystal' 'shards')
+source=("https://github.com/mint-lang/${pkgname}/archive/${pkgver}.tar.gz")
+sha512sums=('526ba6dfd3c18f88bf37e7a33eab81b1c9a8dd3f10cf13f48bf2c4ea1c966bc5db0358cb10da634cfde1228dc4ae3904a1f2563718284473edfbb2e50a82784d')
+b2sums=('bb73f2e2a316a34fe51eafd1a5231e6349601baa84069b36549103ca74c3c07ba3b65f3e1259006aa4fc9f7ba526e0790ec4c5a3c0058b774d6ce85202138bc5')
+
+prepare() {
+	cd "${srcdir}/${pkgname}-${pkgver}" || exit
+	shards install
+}
+
+build() {
+	cd "${srcdir}/${pkgname}-${pkgver}" || exit
+	crystal build src/mint.cr -o mint -p --release --no-debug --link-flags "${LDFLAGS}"
+}
+
+check() {
+	cd "$pkgname-$pkgver"
+	make test
+}
+
+package() {
+	cd "${srcdir}/${pkgname}-${pkgver}" || exit
+	install -Dm644 mint "${pkgdir}/usr/bin/mint"
+	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

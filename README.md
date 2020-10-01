@@ -13,7 +13,7 @@ Server = https://pkgbuild.glatan.vercel.app/
 
 |Name|Version|
 |-|-|
-|mint|0.10.0-1|
+|mint|0.10.0-2|
 |numix-icon-theme|20.06.07-1|
 |numix-icon-theme-circle|20.09.19-1|
 |starship|0.45.1-1|

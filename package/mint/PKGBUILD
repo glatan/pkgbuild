@@ -2,7 +2,7 @@
 
 pkgname='mint'
 pkgver='0.10.0'
-pkgrel='1'
+pkgrel='2'
 pkgdesc='The programming language for writing single page applications.'
 arch=('x86_64')
 url='https://www.mint-lang.com/'
@@ -30,6 +30,6 @@ check() {
 
 package() {
 	cd "${srcdir}/${pkgname}-${pkgver}" || exit
-	install -Dm644 mint "${pkgdir}/usr/bin/mint"
+	install -Dm755 mint "${pkgdir}/usr/bin/mint"
 	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }

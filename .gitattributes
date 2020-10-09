@@ -5,7 +5,7 @@ release/numix-icon-theme-20.06.07-1-any.pkg.tar.zst filter=lfs diff=lfs merge=lf
 release/numix-icon-theme-circle-20.07.10-2-any.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/numix-icon-theme-circle-20.07.11-2-any.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/numix-icon-theme-circle-20.09.19-1-any.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
-release/starship-0.45.2-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
+release/starship-0.46.0-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/ttf-cica-5.0.2-1-any.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/wasm-pack-0.9.1-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/wasmtime-0.20.0-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text

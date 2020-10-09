@@ -1,7 +1,7 @@
 # Maintainer: glatan <glatan [dot] edu [at] gmail [dot] com>
 
 pkgname='starship'
-pkgver='0.45.2'
+pkgver='0.46.0'
 pkgrel='1'
 pkgdesc='The cross-shell prompt for astronauts.'
 arch=('x86_64')
@@ -13,8 +13,8 @@ checkdepends=('python' 'rust')
 optdepends=('powerline-font: powerline symbols for terminal')
 install="${pkgname}.install"
 source=("https://github.com/${pkgname}/${pkgname}/archive/v${pkgver}.tar.gz")
-sha512sums=('1a1390ffee09d636068c61c57d803a65323e503b65210fa7db531a9a4dc4d81c1b31c9bfcdfe834a60a8e71e51406122bae0acd480a5f740d4b256f20334055a')
-b2sums=('583df253c43e414c20265ae1a0e85d766f7586e2e22e3d5ad391cc226f93c0ed518be2f2313ccee9148c33d6ffed06fe93752503852b7cee3ea8980aae3b68d3')
+sha512sums=('e5251b772b96e9dc528825fb963951d5abab2022090edd43cce24e789e33faadbcd1470a9a8b945cb7ec6dc455e47594ca4378ae9bf46fc8a27c7578f91134e7')
+b2sums=('4dc60f84838c388af3f3ddb22e587b3afeeb75ec72494ec553f29c49784fea04309e03c9371d34674c1aede7b525d5f058b6ddf86f5c7e5ec0dba754bb91eeee')
 
 build() {
 	cd "${pkgname}-${pkgver}" || exit

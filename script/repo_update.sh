@@ -21,5 +21,7 @@ done
 for newpkg in $(git status -s ./release/ | grep -E '^\?\?' | awk '{print $2}'); do
     # track new pkgfile
     git lfs track "${newpkg}"
+    git add "${newpkg}"
 done
+
 sort .gitattributes > tmpfile && mv tmpfile .gitattributes

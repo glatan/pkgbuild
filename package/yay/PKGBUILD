@@ -2,7 +2,7 @@
 # Contributor: Jguer <joaogg3@gmail.com>
 
 pkgname='yay'
-pkgver='10.0.4'
+pkgver='10.1.0'
 pkgrel='1'
 pkgdesc='Yet another yogurt. Pacman wrapper and AUR helper written in go.'
 url='https://github.com/Jguer/yay'
@@ -11,8 +11,8 @@ license=('GPL3')
 depends=('libalpm.so>=12' 'sudo' 'git')
 makedepends=('go')
 source=("https://github.com/Jguer/${pkgname}/archive/v${pkgver}.tar.gz")
-sha512sums=('d474eca1b7462923632577a6345a598355d78061993b3561d8e36c4cf6db3df6c47e09e6a8e9481d6fd206774da3f6bd439fb0e1344ac8baa204a631f21c2a1c')
-b2sums=('dbdbdc9bb329920291878835f1d8631cae77e69d5155a28da32afb8214e48521460be36de437d076a7c39bac2f19abd78342172675b88cb22b62bb7068dc8a5e')
+sha512sums=('836720a769cc142f94aeb8c4f20e1c7096e477a5c05e3bed316fd13f8ddf10a784f53f4d51d478c80b3b16cd947ad91ff03a9198e6ebb99b7e06a37b326aa8e7')
+b2sums=('91ea119a297eb1242110d5225d83f6e045687b3009b1cac31f4c79a2bff501a98db84c460071af4f24ebf84d849faa468966fa34a41b7fc12470b186433b2743')
 
 build() {
     cd "${srcdir}/${pkgname}-${pkgver}" || exit

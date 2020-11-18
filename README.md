@@ -21,7 +21,7 @@ Server = https://pkgbuild.glatan.vercel.app/
 |wasm-pack|0.9.1-1|
 |wasmtime|0.21.0-1|
 |xkcp-git|r311.574bc73-1|
-|yay|10.1.0-1|
+|yay|10.1.1-1|
 
 ## Makefile
 

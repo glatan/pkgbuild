@@ -5,7 +5,7 @@ set -u
 cd "package/${1}" || exit
 
 # Japan, Use mirror status
-curl 'https://www.archlinux.org/mirrorlist/?country=JP&use_mirror_status=on' | sed 's/#Server/Server/' > /etc/pacman.d/mirrorlist
+curl 'https://archlinux.org/mirrorlist/?country=JP&use_mirror_status=on' | sed 's/#Server/Server/' > /etc/pacman.d/mirrorlist
 pacman -Syy
 
 chown -R makepkg ./

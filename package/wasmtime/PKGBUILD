@@ -8,7 +8,7 @@ arch=('x86_64')
 url='https://wasmtime.dev/'
 license=('Apache')
 depends=('gcc-libs')
-makedepends=('git' 'rust')
+makedepends=('git' 'rustup')
 checkdepends=('rust')
 source=("git+https://github.com/bytecodealliance/wasmtime.git?#tag=v${pkgver}")
 sha512sums=('SKIP')
@@ -16,6 +16,8 @@ b2sums=('SKIP')
 
 prepare() {
 	cd "${pkgname}" || exit
+	rustup default stable
+	rustup target add wasm32-wasi # traps::parse_dwarf_info requires wasm32-wasi target
 	git submodule update --init --recursive
 }
 

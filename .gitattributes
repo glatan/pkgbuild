@@ -8,6 +8,6 @@ release/numix-icon-theme-circle-20.09.19-1-any.pkg.tar.zst filter=lfs diff=lfs m
 release/starship-0.48.0-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/ttf-cica-5.0.2-1-any.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/wasm-pack-0.9.1-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
-release/wasmtime-0.22.0-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
+release/wasmtime-0.22.1-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/xkcp-git-r311.574bc73-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text
 release/yay-10.1.2-1-x86_64.pkg.tar.zst filter=lfs diff=lfs merge=lfs -text

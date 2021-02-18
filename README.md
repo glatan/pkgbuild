@@ -19,7 +19,7 @@ Server = https://pkgbuild.glatan.vercel.app/
 |starship|0.50.0-1|
 |ttf-cica|5.0.2-1|
 |wasm-pack|0.9.1-1|
-|wasmtime|0.22.1-1|
+|wasmtime|0.23.0-1|
 |xkcp-git|r311.574bc73-1|
 |yay|10.1.2-1|
 

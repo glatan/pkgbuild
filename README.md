@@ -13,9 +13,9 @@ Server = https://pkgbuild.glatan.vercel.app/
 
 |Name|Version|
 |-|-|
-|linux-ripemd|5.11.2.arch1-1|
-|linux-ripemd-docs|5.11.2.arch1-1|
-|linux-ripemd-headers|5.11.2.arch1-1|
+|linux-ripemd|5.11.6.arch1-1|
+|linux-ripemd-docs|5.11.6.arch1-1|
+|linux-ripemd-headers|5.11.6.arch1-1|
 |mint|0.10.0-2|
 |numix-icon-theme|20.06.07-1|
 |numix-icon-theme-circle|20.09.19-1|

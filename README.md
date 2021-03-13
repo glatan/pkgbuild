@@ -13,6 +13,9 @@ Server = https://pkgbuild.glatan.vercel.app/
 
 |Name|Version|
 |-|-|
+|linux-ripemd|5.11.6.arch1-1|
+|linux-ripemd-docs|5.11.6.arch1-1|
+|linux-ripemd-headers|5.11.6.arch1-1|
 |mint|0.10.0-2|
 |numix-icon-theme|20.06.07-1|
 |numix-icon-theme-circle|20.09.19-1|
@@ -22,6 +25,23 @@ Server = https://pkgbuild.glatan.vercel.app/
 |wasmtime|0.24.0-1|
 |xkcp-git|r311.574bc73-1|
 |yay|10.1.2-1|
+
+### linux-ripemd
+
+core/linuxをベースにRIPEMD-{128, 160, 256, 320}を利用するために、以下の設定を有効にしたもの。
+
+```
+CONFIG_CRYPTO_USER=y
+CONFIG_CRYPTO_USER_API=y
+CONFIG_CRYPTO_USER_API_HASH=y
+CONFIG_CRYPTO_USER_API_SKCIPHER=y
+CONFIG_CRYPTO_USER_API_RNG=y
+CONFIG_CRYPTO_USER_API_AEAD=y
+CONFIG_CRYPTO_RMD128=y
+CONFIG_CRYPTO_RMD160=y
+CONFIG_CRYPTO_RMD256=y
+CONFIG_CRYPTO_RMD320=y
+```
 
 ## Makefile
 

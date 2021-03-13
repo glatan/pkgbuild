@@ -16,11 +16,13 @@
 !README.md
 
 # package files
-!package/*/LICENSE*
 !package/*/PKGBUILD
-!package/*/*.checkupdate
-!package/*/*.install
+!package/*/LICENSE*
+!package/*/config
 !package/*/*.protocol
+!package/*/*.patch
+!package/*/*.install
+!package/*/*.checkupdate
 
 !release/*.db*
 !release/*.files*
